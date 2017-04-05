@@ -1,10 +1,11 @@
 html {
-  background-color: white;
+  background-color: black;
 }
 body{
   height: 100%;
   top: 0px;
   bottom: 0px;
+  color: red
 }
 p {
   color: red;
@@ -12,7 +13,9 @@ p {
 input{
   color: red;
 }
-
+#underscores{
+  color: red;
+}
 
 @keyframes spinsun {
   0% { transform: rotate(0); }
