@@ -6,7 +6,7 @@ var $ = function (id) {
 
 // iniciando array
 
-var game = ["MARIA", "WATER", "CAT", "CHEESE", "DOG", "MOUSE"]
+var game = ["MARIA", "WATER", "CAT", "CHEESE", "MOUSE"]
 
 var choice = Math.floor(Math.random()*6)
 
@@ -14,19 +14,41 @@ var answer = game[choice];
 
 var myLength = answer.length;
 
-var display=[myLength];
+var display=myLength;
 
 var win = myLength;
 
 var letters = answer.split('');
 
-var attemptsLeft= 10;
+var attemptsLeft= 5;
 
 var output="";
 
+var words = document.getElementById("game");
+
 var userLetter="";
+var undescores = document.getElementById("undescores")
+var letterinput = document.getElementById("letter").value
+var form = document.getElementById("form");
+form.addEventListener("submit", function(e) {
+  e.preventDefault()
+  comparing()
+})
 
 
+function comparing() {
+  var letterinput = document.getElementById("letter").value
+
+  console.log(letterinput);
+  console.log(answer ,"CAT");
+  if (answer == letterinput) {
+words.innerHTML = answer
+alert("winner")
+  } else {
+
+  }
+}
+comparing();
 
 
 
@@ -34,28 +56,29 @@ var userLetter="";
 var setup = function()
 {
 alert(answer);
-    for (var i=0; i<answer.length; i++)
+    for (var i=0; i<letters.length; i++)
     {
-        display[i] = "_ ";
+        letters[i] = "_ ";
 
-        output = output + display[i];
+        output = output + letters[i];
 
     }
     document.getElementById("game").innerHTML = output;
 
     output ="";
 }
+setup()
 var submit = function()
 
 {
-    output = "";
+    // output = "";
 
     userLetter = jQuery("#letter").val();
     jQuery("#letter").val ="";
 
     for (var c= 0; c<answer.length; c++)
 
-        //alert(letters[c]);
+
 
         if (userLetter.toUpperCase() == letters[c])
         {
@@ -75,18 +98,23 @@ var submit = function()
     if (win < 1)
 
     {
-        document.getElementById("guesses").innerHTML ="YOU WIN!";
+      document.getElementById("win").innerHTML ="YOU WIN!";
+        document.getElementById("win").style.color = ("red");
+
     }
+
+
     else if (attemptsLeft < 1)
 
     {
         document.getElementById("guesses").innerHTML ="YOU LOSE!!";
     }
     else
-
     {
 
+
         document.getElementById("guesses").innerHTML ="You have " + attemptsLeft + " guesses left";
+        document.getElementById("guesses").style.color = ("red");
     }
 
 };
@@ -94,27 +122,12 @@ window.onload = function()
 
 {
 
-alert("MARIA");
+// alert("MARIA");
 
-    setup();
+    // setup();
 
     //$("#submit").onclick = submit;
 
 }
-    //alert(answer)
+    // alert(answer)
 // =====================================================================
-$(document).ready(function(){
-  var degree = 30;
-  $("button").click(function(){
-    randomSpin();
-    $("img").css({"transform":"rotate(" + degree + "deg)"});
-    console.log(degree);
-  });
-
-  function randomSpin(){
-    var random = Math.floor(Math.random() * (740 - 30)) + 30;
-    degree = degree + random;
-  };
-
-
-});
