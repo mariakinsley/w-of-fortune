@@ -5,7 +5,7 @@ var $ = function(id) {
 };
 
 // iniciando array
-
+// string
 var game = ["MARIA", "WATER", "CAT", "CHEESE", "MOUSE"];
 
 var choice = Math.floor(Math.random() * 6);
@@ -40,25 +40,44 @@ function comparing() {
     var letterinput = document.getElementById("letter").value;
 
     console.log(letterinput);
-    console.log(answer, "CAT");
-    if (answer == letterinput) {
-        words.innerHTML = answer;
-        alert("winner");
-    } else {
+    console.log(answer);
 
-    }
+
+    for (var i = 0; i < letters.length; i++) {
+        // letters[i] = "_ ";
+        console.log('letters[i]',letters[i]);
+        console.log('letterinput',letterinput);
+        console.log("");
+if (letters.output === to letterinput[i]) {
+
 }
-comparing();
 
+        // output = output + letters[i];
+      }
+        // ("winner");
 
-
+}
+// comparing();
+// =========================================================
+function allLetter(inputtxt)
+  {
+   var letters = /^[A-Za-z]+$/;
+   if(inputtxt.value.match(letters))
+     {
+      return true;
+     }
+   else
+     {
+     alert("message");
+     return false;
+     }
+  }  
 
 var setup = function() {
-    alert(answer);
+    // (answer);
     for (var i = 0; i < letters.length; i++) {
-        letters[i] = "_ ";
 
-        output = output + letters[i];
+        output = output + "_ ";
 
     }
     document.getElementById("game").innerHTML = output;
@@ -113,12 +132,12 @@ window.onload = function(){
 
 
 
-    // alert("MARIA");
+    // ("MARIA");
 
     // setup();
 
     //$("#submit").onclick = submit;
 
 };
-// alert(answer)
+// (answer)
 // =====================================================================
